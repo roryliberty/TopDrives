@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Vehicle } from '../vehicle';
+import { Vehicle, VehicleMaker } from '../vehicle';
 
 @Component({
   selector: 'app-vehicles',
@@ -7,18 +7,16 @@ import { Vehicle } from '../vehicle';
   styleUrls: ['./vehicles.component.css']
 })
 export class VehiclesComponent implements OnInit {
-  vehicle: Vehicle = {
-    id: 1,
-    name: 'Camaro',
-    topSpeed: 193,
-    zeroToSixty: 3.5,
-    handling: 90,
-    drive: 'RWD'
-  }
-
-  constructor() { }
+  // This tells me what a vehicle should look like
+  constructor(public id: number, public make: string, public model: string) { }
 
   ngOnInit(): void {
   }
 
+}
+// This makes a vehicle
+class Vroom {
+  static create(event: VehiclesComponent) {
+    return { id: event.id, make: event.make, model: event.model}
+  }
 }
