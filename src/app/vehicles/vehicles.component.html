@@ -1,11 +1,10 @@
-<h2>{{ vehicle.name | uppercase }} Details</h2>
-<div><span>id: </span> {{ vehicle.id }}</div>
-<div><span>Top Speed: </span> {{ vehicle.topSpeed }}</div>
-<div><span>0-60: </span> {{ vehicle.zeroToSixty }}</div>
-<div><span>Handling: </span> {{ vehicle.handling }}</div>
-<div><span>Drive: </span> {{ vehicle.drive }}</div>
+<!--Place to list my vehicles
+    Hopefully I'll be able to sort as well at some point. -->
+<h2>My Vehicles</h2>
+<ul class="vehicles">
+  <li *ngFor="let vehicle of mockCars" (click)="onSelect(vehicle)">
+    <span class="id">{{vehicle.id}}</span> {{vehicle.make}} {{vehicle.model}}
+  </li>
+</ul>
 
-<div>
-  <label for="name">Vehicle name: </label>
-  <input id="name" [(ngModel)]="vehicle.name" placeholder="name">
-</div>
+<app-vehicle-detail [vehicle]="selectedVehicle"></app-vehicle-detail>

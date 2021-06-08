@@ -1,5 +1,9 @@
+/* Place to list my vehicles
+   Hopefully I'll be able to sort as well at some point. */
 import { Component, OnInit } from '@angular/core';
-import { Vehicle, VehicleMaker } from '../vehicle';
+import { Vehicle } from '../vehicle';
+import { VehicleService } from "../vehicle.service";
+import { MessageService} from "../message.service";
 
 @Component({
   selector: 'app-vehicles',
@@ -7,16 +11,28 @@ import { Vehicle, VehicleMaker } from '../vehicle';
   styleUrls: ['./vehicles.component.css']
 })
 export class VehiclesComponent implements OnInit {
-  // This tells me what a vehicle should look like
-  constructor(public id: number, public make: string, public model: string) { }
+
+  constructor(private vehicleService: VehicleService,
+              private messageService: MessageService) { }
 
   ngOnInit(): void {
+    this.getVehicles()
   }
 
-}
-// This makes a vehicle
-class Vroom {
-  static create(event: VehiclesComponent) {
-    return { id: event.id, make: event.make, model: event.model}
+  // Exposes MOCKCARS array for binding
+  mockCars: Vehicle[] = [];
+
+  // Assigns clicked vehicle from the template to selectedVehicle
+  selectedVehicle?: Vehicle;
+  onSelect(vehicle: Vehicle): void {
+    this.selectedVehicle = vehicle;
+    this.messageService.add(`VehiclesComponent: Selected hero id=${vehicle.id}`);
+  }
+
+  getVehicles(): void {
+    this.vehicleService.getVehicles()
+      .subscribe(mockCars => this.mockCars = mockCars);
   }
 }
+
+

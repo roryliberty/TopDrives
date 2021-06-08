@@ -10,9 +10,8 @@ import { Vehicle } from '../vehicle';
 })
 export class AddVehicleComponent implements OnInit {
 
-  constructor() { }
+    constructor() { }
 
-  ngOnInit(): void {
-  }
-
+    ngOnInit(): void {
+    }
 }

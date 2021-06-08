@@ -1,3 +1,4 @@
+/** 1. This tells me what a Vehicle looks like */
 export interface Vehicle {
   id: number;
   make: string;
@@ -6,11 +7,4 @@ export interface Vehicle {
   zeroToSixty?: number;
   handling?: number;
   drive?: string;
-}
-
-export class VehicleMaker {
-  static create(event: Vehicle) {
-    return { id: event.id, make: event.make, model: event.model, topSpeed: event.topSpeed,
-            zeroToSixty: event.zeroToSixty, handling: event.handling, drive: event.drive };
-  }
 }

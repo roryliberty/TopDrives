@@ -1,0 +1,25 @@
+<div *ngIf="vehicle">
+  <h2>{{vehicle.make | uppercase}} {{vehicle.model | uppercase}} Details</h2>
+
+  <div>
+    <span>id: </span>{{vehicle.id}}
+  </div>
+
+  <div>
+    <label for="make">Make: </label>
+    <input id="make" [(ngModel)]="vehicle.make" placeholder="Make">
+    <label for="model">Model: </label>
+    <input id="model" [(ngModel)]="vehicle.model" placeholder="Model">
+    <label for="drive">Drive: </label>
+    <input id="drive" [(ngModel)]="vehicle.drive" placeholder="Drive">
+  </div>
+
+  <div>
+    <label for="top-speed">Top Speed: </label>
+    <input id="top-speed" [(ngModel)]="vehicle.topSpeed" placeholder="Top Speed">
+    <label for="zero-to-sixty">0-60: </label>
+    <input id="zero-to-sixty" [(ngModel)]="vehicle.zeroToSixty" placeholder="0-60">
+    <label for="handling">Handling: </label>
+    <input id="handling" [(ngModel)]="vehicle.handling" placeholder="Handling">
+  </div>
+</div>
